@@ -1,12 +1,45 @@
-import React from 'react'
+"use client";
+
+import React, {useEffect, useState} from 'react'
+import { fetchUser } from '@/actions/useractions';
 
 const Username = ({ params }) => {
+
+    const [currentUser, setcurrentUser] = useState({});
+
+    const [amountField, setAmountField] = useState('');
+
+    useEffect(() => {
+        getData();
+    }, [])
+
+    const getData = async () => {
+        let u = await fetchUser(params.username);
+        setcurrentUser(u);
+    }
+
+    const handleonChange = (e) => {
+        setAmountField(e.target.value);
+    }
+
+    const handleAmountTen = () => {
+        setAmountField('10');
+    }
+
+    const handleAmountTwenty = () => {
+        setAmountField('20');
+    }
+
+    const handleAmountThirty = () => {
+        setAmountField('30');
+    }
+
     return (
         <>
             <div className='cover relative'>
-                <img className='object-cover w-full' src='https://c10.patreonusercontent.com/4/patreon-media/p/campaign/4842667/452146dcfeb04f38853368f554aadde1/eyJ3IjoxNjAwLCJ3ZSI6MX0%3D/16.gif?token-time=1725408000&token-hash=Zp1HvMNgvW03TpeETEXcdvjW5ZSWMLeoeBewTXUIa14%3D' alt='' />
-                <div className='absolute -bottom-20 right-[45%] border-2 border-white rounded-full'>
-                    <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg" className='rounded-full' width={150} height={150} alt="" />
+                <img className='object-cover w-full' src={currentUser.coverpic} alt='' />
+                <div className='absolute -bottom-20 right-[45%] border-2 border-white rounded-full size-32 overflow-hidden'>
+                    <img src={currentUser.profilepic} className='rounded-full object-cover size-32' width={128} height={128} alt="" />
                 </div>
             </div>
 
@@ -15,10 +48,10 @@ const Username = ({ params }) => {
                     @{params.username}
                 </div>
                 <div className='text-slate-400'>
-                    Creating Animated art for VTT's
+                    Let's help {params.username} get a chai!
                 </div>
                 <div className='text-slate-400'>
-                    13,360 members . 87 posts . $17,620/release
+                   {currentUser.name} is raising funds for a chai. Let's help him reach his goal.
                 </div>
 
                 <div className="payment flex gap-3 w-[80%] mt-11">
@@ -28,42 +61,37 @@ const Username = ({ params }) => {
                         <ul className='mx-5'>
                             <li className='my-2 flex gap-2 items-center'>
                                 <img className='invert' width={33} src="avatar.gif" alt="user avatar" />
-                                Shuvadipta donated<span className='font-bold'>$30</span>with a message ""
+                                John donated<span className='font-bold'>₹30</span>with a message "Lots of ❤️"
                             </li>
                             <li className='my-2 flex gap-2 items-center'>
                                 <img className='invert' width={33} src="avatar.gif" alt="user avatar" />
-                                Shuvadipta donated $30 with a message ""
+                                John donated<span className='font-bold'>₹30</span>with a message "Lots of ❤️"
                             </li>
                             <li className='my-2 flex gap-2 items-center'>
                                 <img className='invert' width={33} src="avatar.gif" alt="user avatar" />
-                                Shuvadipta donated $30 with a message ""
+                                John donated<span className='font-bold'>₹30</span>with a message "Lots of ❤️"
                             </li>
                             <li className='my-2 flex gap-2 items-center'>
                                 <img className='invert' width={33} src="avatar.gif" alt="user avatar" />
-                                Shuvadipta donated $30 with a message ""
+                                John donated<span className='font-bold'>₹30</span>with a message "Lots of ❤️"
                             </li>
                             <li className='my-2 flex gap-2 items-center'>
                                 <img className='invert' width={33} src="avatar.gif" alt="user avatar" />
-                                Shuvadipta donated $30 with a message ""
+                                John donated<span className='font-bold'>₹30</span>with a message "Lots of ❤️"
                             </li>
                             <li className='my-2 flex gap-2 items-center'>
                                 <img className='invert' width={33} src="avatar.gif" alt="user avatar" />
-                                Shuvadipta donated $30 with a message ""
+                                John donated<span className='font-bold'>₹30</span>with a message "Lots of ❤️"
                             </li>
                             <li className='my-2 flex gap-2 items-center'>
                                 <img className='invert' width={33} src="avatar.gif" alt="user avatar" />
-                                Shuvadipta donated $30 with a message ""
+                                John donated<span className='font-bold'>₹30</span>with a message "Lots of ❤️"
                             </li>
                             <li className='my-2 flex gap-2 items-center'>
                                 <img className='invert' width={33} src="avatar.gif" alt="user avatar" />
-                                Shuvadipta donated $30 with a message ""
-                            </li>
-                            <li className='my-2 flex gap-2 items-center'>
-                                <img className='invert' width={33} src="avatar.gif" alt="user avatar" />
-                                Shuvadipta donated $30 with a message ""
+                                John donated<span className='font-bold'>₹30</span>with a message "Lots of ❤️"
                             </li>
                             
-
                         </ul>
                     </div>
 
@@ -72,13 +100,13 @@ const Username = ({ params }) => {
                         <div className='flex gap-3 flex-col'>
                             <input type="text" placeholder="Enter Name" className='bg-slate-800 w-full p-2 rounded-lg' />
                             <input type="text" placeholder="Enter Message" className='bg-slate-800 w-full p-2 rounded-lg' />
-                            <input type="text" placeholder="Enter Amount" className='bg-slate-800 w-full p-2 rounded-lg' />
+                            <input value={amountField} onChange={handleonChange} type="text" placeholder="Enter Amount" className='bg-slate-800 w-full p-2 rounded-lg' />
                              <button className='bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Pay</button>
                         </div>
                         <div className='flex gap-2 mt-5'>
-                            <button className='bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Pay $10</button>
-                            <button className='bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Pay $20</button>
-                            <button className='bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Pay $30</button>
+                            <button onClick={handleAmountTen} className='bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Pay ₹10</button>
+                            <button onClick={handleAmountTwenty} className='bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Pay ₹20</button>
+                            <button onClick={handleAmountThirty} className='bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Pay ₹30</button>
                         </div>
 
                     </div>

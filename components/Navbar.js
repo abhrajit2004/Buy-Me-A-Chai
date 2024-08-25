@@ -17,13 +17,7 @@ const Navbar = () => {
           <span>Buy Me A Chai!</span>
         </Link>
       </div>
-      {/* <ul className='flex justify-between gap-4'>
-            <li>Home</li>
-            <li>About</li>
-            <li>Projects</li>
-            <li>Sign Up</li>
-            <li>Login</li>
-        </ul> */}
+
 
       <div className='relative'>
         {session && <>
@@ -42,7 +36,7 @@ const Navbar = () => {
                 <Link href={"/profile"} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</Link>
               </li>
               <li>
-                <Link href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Your Page</Link>
+                <Link href={`/${session.user.name}`} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Your Page</Link>
               </li>
               <li>
                 <a onClick={() => { signOut() }} className="block px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
