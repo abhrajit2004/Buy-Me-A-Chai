@@ -67,7 +67,7 @@ const Profile = () => {
            />
             {/* Same as */}
             <ToastContainer />
-            <div className='container mx-auto px-5'>
+            <div className='container mx-auto py-5 px-6'>
                 <h1 className='text-center my-5 text-3xl font-bold'>Welcome to your Profile</h1>
 
                 <form className='max-w-2xl mx-auto' action={handleSubmit}>

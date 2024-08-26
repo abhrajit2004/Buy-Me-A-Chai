@@ -11,3 +11,6 @@ const Dashboard = ({ params }) => {
 }
 
 export default Dashboard
+export const metadata = {
+  title: 'Your Profile - Buy Me A Chai',
+}

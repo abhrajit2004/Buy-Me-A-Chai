@@ -10,16 +10,16 @@ const Navbar = () => {
   const [showdropdown, setShowDropdown] = useState(false);
 
   return (
-    <nav className='bg-gray-900 text-white flex justify-between items-center px-4 h-16'>
+    <nav className='bg-gray-900 text-white flex justify-between items-center px-4 md:h-16 flex-col md:flex-row'>
       <div>
         <Link className="logo font-bold text-lg flex justify-center items-center" href={"/"}>
           <img src="tea.gif" width={44} alt="" />
-          <span>Buy Me A Chai!</span>
+          <span className='text-xl md:text-base my-3 md:my-0'>Buy Me A Chai!</span>
         </Link>
       </div>
 
 
-      <div className='relative'>
+      <div className='relative flex flex-col md:block gap-4 '>
         {session && <>
           <button onClick={() => { setShowDropdown(!showdropdown) }} onBlur={() => {
             setTimeout(() => {
