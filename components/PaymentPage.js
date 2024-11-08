@@ -37,10 +37,10 @@ const PaymentPage = ({ username }) => {
                     @{username}
                 </div>
                 <div className='text-slate-400'>
-                    Let's help {username} get a chai!
+                    Let&apos;s help {username} get a chai!
                 </div>
                 <div className='text-slate-400'>
-                   {currentUser.name} is raising funds for a chai. Let's help him reach his goal.
+                   {currentUser.name} is raising funds for a chai. Let&apos;s help him reach his goal.
                 </div>
 
                 <div className="payment flex gap-3 w-[80%] mt-11 flex-col md:flex-row">
@@ -50,35 +50,35 @@ const PaymentPage = ({ username }) => {
                         <ul className='mx-5'>
                             <li className='my-2 flex gap-2 items-center'>
                                 <img className='invert' width={33} src="avatar.gif" alt="user avatar" />
-                                John donated<span className='font-bold'>₹30</span>with a message ""
+                                John donated<span className='font-bold'>₹30</span>with a message
                             </li>
                             <li className='my-2 flex gap-2 items-center'>
                                 <img className='invert' width={33} src="avatar.gif" alt="user avatar" />
-                                John donated<span className='font-bold'>₹30</span>with a message ""
+                                John donated<span className='font-bold'>₹30</span>with a message
                             </li>
                             <li className='my-2 flex gap-2 items-center'>
                                 <img className='invert' width={33} src="avatar.gif" alt="user avatar" />
-                                John donated<span className='font-bold'>₹30</span>with a message ""
+                                John donated<span className='font-bold'>₹30</span>with a message
                             </li>
                             <li className='my-2 flex gap-2 items-center'>
                                 <img className='invert' width={33} src="avatar.gif" alt="user avatar" />
-                                John donated<span className='font-bold'>₹30</span>with a message ""
+                                John donated<span className='font-bold'>₹30</span>with a message
                             </li>
                             <li className='my-2 flex gap-2 items-center'>
                                 <img className='invert' width={33} src="avatar.gif" alt="user avatar" />
-                                John donated<span className='font-bold'>₹30</span>with a message ""
+                                John donated<span className='font-bold'>₹30</span>with a message
                             </li>
                             <li className='my-2 flex gap-2 items-center'>
                                 <img className='invert' width={33} src="avatar.gif" alt="user avatar" />
-                                John donated<span className='font-bold'>₹30</span>with a message ""
+                                John donated<span className='font-bold'>₹30</span>with a message
                             </li>
                             <li className='my-2 flex gap-2 items-center'>
                                 <img className='invert' width={33} src="avatar.gif" alt="user avatar" />
-                                John donated<span className='font-bold'>₹30</span>with a message ""
+                                John donated<span className='font-bold'>₹30</span>with a message
                             </li>
                             <li className='my-2 flex gap-2 items-center'>
                                 <img className='invert' width={33} src="avatar.gif" alt="user avatar" />
-                                John donated<span className='font-bold'>₹30</span>with a message ""
+                                John donated<span className='font-bold'>₹30</span>with a message
                             </li>
                             
                         </ul>
